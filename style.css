@@ -20,6 +20,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	touch-action: manipulation;
 }
 body {
 	font-family: "Limkin", sans-serif;
@@ -34,7 +35,7 @@ button {
 	display: flex;
 	align-items: safe center;
 	justify-content: safe center;
-	height: 100vh;
+	height: 100dvh;
 }
 .content {
 	width: 100%;
