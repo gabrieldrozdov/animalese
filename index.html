@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animalese, as sung by Barco Loudly</title>
+
+	<meta name="author" content="Gabriel Drozdov / Barco Loudly">
+	<meta name="keywords" content="HTML, CSS, JavaScript, Music, Songs, Creative Coding, Typography">
+	<meta name="description" content="Type with the beautiful voice of the animals.">
+	<meta property="og:url" content="https://animalese.barcoloudly.com/">
+	<meta name="og:title" property="og:title" content="Animalese, as sung by Barco Loudly">
+	<meta property="og:description" content="Type with the beautiful voice of the animals.">
+	<meta property="og:image" content="/assets/meta/opengraph.jpg">
+	<link rel="icon" type="image/png" href="/assets/meta/favicon-animalese.png" />
+
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Tone.js for audio sampling -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.3.5/Tone.js"></script>
+</head>
+<body>
+
+	<div class="container">
+
+		<h1 class="title">Animalese, as sung by <a href="https://barcoloudly.com/" target="_blank">Barco Loudly</a></h1>
+
+		<div class="content">
+			<div class="screen">
+				<div class="screen-content" contenteditable="plaintext-only" spellcheck="false"></div>
+			</div>
+			<div class="keyboard">
+				<div class="keyboard-row">
+					<button data-letter="1">1</button>
+					<button data-letter="2">2</button>
+					<button data-letter="3">3</button>
+					<button data-letter="4">4</button>
+					<button data-letter="5">5</button>
+					<button data-letter="6">6</button>
+					<button data-letter="7">7</button>
+					<button data-letter="8">8</button>
+					<button data-letter="9">9</button>
+					<button data-letter="0">0</button>
+					<button data-letter="backspace">←</button>
+				</div>
+				<div class="keyboard-row">
+					<button data-letter="q">Q</button>
+					<button data-letter="w">W</button>
+					<button data-letter="e">E</button>
+					<button data-letter="r">R</button>
+					<button data-letter="t">T</button>
+					<button data-letter="y">Y</button>
+					<button data-letter="u">U</button>
+					<button data-letter="i">I</button>
+					<button data-letter="o">O</button>
+					<button data-letter="p">P</button>
+				</div>
+				<div class="keyboard-row">
+					<div class="keyboard-row-spacer"></div>
+					<button data-letter="a">A</button>
+					<button data-letter="s">S</button>
+					<button data-letter="d">D</button>
+					<button data-letter="f">F</button>
+					<button data-letter="g">G</button>
+					<button data-letter="h">H</button>
+					<button data-letter="j">J</button>
+					<button data-letter="k">K</button>
+					<button data-letter="l">L</button>
+					<div class="keyboard-row-spacer"></div>
+				</div>
+				<div class="keyboard-row">
+					<div class="keyboard-row-spacer"></div>
+					<div class="keyboard-row-spacer"></div>
+					<button data-letter="z">Z</button>
+					<button data-letter="x">X</button>
+					<button data-letter="c">C</button>
+					<button data-letter="v">V</button>
+					<button data-letter="b">B</button>
+					<button data-letter="n">N</button>
+					<button data-letter="m">M</button>
+					<div class="keyboard-row-spacer"></div>
+					<div class="keyboard-row-spacer"></div>
+				</div>
+				<div class="keyboard-row">
+					<button data-letter="escape" onclick="clearScreen();" id="keyboard-clear">CLEAR</button>
+					<button data-letter="space"></button>
+					<button data-letter="enter" onclick="playAll();" id="keyboard-play">PLAY</button>
+				</div>
+				<div class="keyboard-row">
+					<div class="controls-group">
+						<label>Pitch</label>
+						<input type="range" min="1" max="100" value="30" oninput="setPitch(this.value);">
+					</div>
+					<div class="controls-group">
+						<label>Volume</label>
+						<input type="range" min="1" max="100" value="100" oninput="setVolume(this.value);">
+					</div>
+					<div class="controls-group">
+						<label>Speed</label>
+						<input type="range" min="0" max="100" value="75" oninput="setSpeed(this.value);">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="player" data-active="0" onclick="endPlayAll();">
+			<div class="player-content"></div>
+		</div>
+	</div>
+	
+	<script src="script.js"></script>
+</body>
+</html>

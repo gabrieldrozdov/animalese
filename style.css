@@ -1,0 +1,326 @@
+@font-face {
+	font-family: "Limkin";
+	src: url("https://toomuchtype.com/fonts/limkin/variable/TMT-LimkinVF.ttf") format(truetype),
+		 url("https://toomuchtype.com/fonts/limkin/variable/TMT-LimkinVF.woff") format(woff),
+		 url("https://toomuchtype.com/fonts/limkin/variable/TMT-LimkinVF.woff2") format(woff2);
+	font-weight: 100 900;
+}
+:root {
+	--blue: #57b6fe;
+	--red: #ff6b6b;
+	--yellow: #ffba0b;
+	--green: #55e477;
+	--purple: #ca8fec;
+	--orange: #fb8938;
+	--lime: #bfe111;
+	--pink: #fc7cb8;
+	--primary: #eee;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: "Limkin", sans-serif;
+	font-variation-settings: "wght" 900, "SRFF" 0;
+	font-weight: 900;
+	background-color: #eee;
+}
+button {
+	font-family: inherit;
+}
+.container {
+	display: flex;
+	align-items: safe center;
+	justify-content: safe center;
+	height: 100vh;
+}
+.content {
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-rows: minmax(0, 1fr) minmax(0, 1.25fr);
+	padding: 60px 10px;
+	gap: 6px;
+	max-width: 720px;
+	max-height: 800px;
+}
+.title {
+	position: fixed;
+	top: 20px;
+	font-size: 24px;
+	line-height: 1em;
+	white-space: nowrap;
+}
+.title a {
+	text-decoration: none;
+	background-color: black;
+	border-radius: 5px;
+	padding: calc(5px + .2em) 10px 5px 10px;
+	color: #eee;
+}
+.title a:hover {
+	opacity: .5;
+}
+.title a:active {
+	opacity: .25;
+}
+
+/* Screen */
+.screen {
+	border: 5px solid black;
+	border-radius: 10px;
+	background-color: white;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+.screen-content {
+	font-size: clamp(20px, 7vw, 48px);
+	text-align: center;
+	word-break: break-word;
+	letter-spacing: -0.02em;
+	overflow-wrap: break-word;
+	overflow: scroll;
+	max-height: 100%;
+	padding: calc(20px + .2em) 20px 20px 20px;
+	outline: unset;
+	width: 100%;
+}
+.screen-button {
+	background-color: unset;
+	font-size: 14px;
+	line-height: 1em;
+	font-variation-settings: "wght" 900, "SRFF" 0;
+	font-weight: 900;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	padding-top: 5px;
+	border: unset;
+	color: black;
+	position: absolute;
+	letter-spacing: .1em;
+}
+.screen-button:hover {
+	opacity: .5;
+}
+.screen-button:active {
+	opacity: .25;
+}
+.screen-button-clear {
+	bottom: 5px;
+	left: 8px;
+}
+.screen-button-play {
+	bottom: 5px;
+	right: 7px;	
+}
+
+/* Controls */
+.controls-group {
+	flex-grow: 1;
+	flex-basis: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 4px 10px 0 10px;
+	border: 5px solid black;
+	border-radius: 10px;
+	box-shadow: 3px 3px black;
+	background-color: var(--primary);
+	min-height: 50px;
+}
+.controls-group label {
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: .2em;
+	line-height: 1em;
+	padding-left: .2em;
+	transform: translateY(-8px);
+}
+.controls-group input {
+	cursor: pointer;
+	-webkit-appearance: none;
+	background: black;
+	border-radius: 20px;
+	outline: none;
+	height: 5px;
+	width: 100%;
+}
+.controls-group input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: white;
+	border: 5px solid black;
+	cursor: pointer;
+}
+.controls-group input::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 5px solid black;
+	background: white;
+	cursor: pointer;
+}
+
+/* Keyboard */
+.keyboard {
+	flex-grow: 1;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.keyboard-row {
+	flex-grow: 1;
+	flex-basis: 40px;
+	display: flex;
+	gap: 6px;
+}
+.keyboard-row button {
+	flex-grow: 1;
+	flex-basis: 0;
+	font-variation-settings: "wght" 900, "SRFF" 0;
+	font-weight: 900;
+	font-size: clamp(10px, 3.5vw, 24px);
+	border: unset;
+	background-color: var(--primary);
+	border: 5px solid black;
+	border-radius: 10px;
+	box-shadow: 3px 3px black;
+	color: black;
+	cursor: pointer;
+	line-height: 1em;
+	padding-top: .2em;
+	outline: unset;
+}
+.keyboard-row button[data-active="1"] {
+	background-color: white;
+	transform: scale(0.95);
+}
+.keyboard-row button:hover {
+	background-color: white;
+	transform: scale(1.02);
+}
+.keyboard-row button:active {
+	transform: scale(0.95);
+}
+.keyboard-row-spacer {
+	flex-grow: 1;
+}
+#keyboard-clear {
+	font-size: 16px;
+	letter-spacing: .1em;
+}
+#keyboard-play {
+	font-size: 16px;
+	letter-spacing: .1em;
+}
+
+/* Fullscreen player */
+.player {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9;
+	background-color: #eee;
+	font-size: max(5vw, 32px);
+	word-break: break-word;
+	overflow-wrap: break-word;
+	color: white;
+	text-align: center;
+	display: flex;
+	align-items: safe center;
+	justify-content: safe center;
+	padding: 5vw;
+	text-wrap: balance;
+	cursor: none;
+}
+.player[data-active="0"] {
+	display: none;
+}
+.player-content {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: safe center;
+	justify-content: safe center;
+	gap: .2em;
+}
+.player-content > span {
+	flex-wrap: nowrap;
+}
+.player-content .letter {
+	margin: 3px;
+	color: black;
+	background-color: var(--primary);
+	border-radius: 10px;
+	display: inline-block;
+	padding: max(.5vw, 5px);
+	line-height: 1em;
+	border: 5px solid black;
+	box-shadow: 3px 3px black;
+}
+
+/* Mobile styles */
+@media (max-width: 650px) {
+	.title {
+		top: 15px;
+		font-size: 14px;
+	}
+}
+@media (max-width: 450px) {
+	.container {
+		padding: 2px;
+		gap: 2px;
+		padding: unset;
+	}
+	.content {
+		padding: 40px 2px 2px 2px;
+		max-height: unset;
+		gap: 2px;
+	}
+	.screen {
+		box-shadow: unset;
+		border: 2px solid black;
+		border-radius: 4px;
+	}
+	.controls-group {
+		border: 2px solid black;
+		box-shadow: unset;
+		border-radius: 4px;
+	}
+	.controls-group label {
+		transform: translateY(-15px);
+	}
+	.controls-group input {
+		height: 2px;
+	}
+	.controls-group input::-webkit-slider-thumb {
+		border: 2px solid black;
+	}
+	.controls-group input::-moz-range-thumb {
+		border: 2px solid black;
+	}
+	.keyboard {
+		gap: 2px;
+	}
+	.keyboard-row {
+		gap: 2px;
+	}
+	.keyboard-row button {
+		border: 2px solid black;
+		box-shadow: unset;
+		border-radius: 4px;
+	}
+}
