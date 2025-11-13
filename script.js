@@ -48,7 +48,7 @@ function playAll() {
 		if (wordIndex >= words.length) {
 			temp += `</span>`;
 		} else {
-			temp += `</span><span style="visibility: hidden;">&nbsp;</span>`;
+			temp += `</span><span style="visibility: hidden;" class="letter"></span>`;
 		}
 	}
 	let playerContent = document.querySelector('.player-content');
@@ -209,6 +209,7 @@ function removeLetter() {
 function clearScreen() {
 	let screenContent = document.querySelector('.screen-content');
 	screenContent.textContent = "";
+	changeColors();
 }
 
 // Use real keyboard
@@ -240,3 +241,19 @@ function typeAnimalese(e) {
 	}
 }
 document.addEventListener('keydown', typeAnimalese);
+
+// Check if shift pressed
+function addShift(e) {
+	let keyboard = document.querySelector('.keyboard');
+	if (e.key == "Shift") {
+		keyboard.style.textTransform = "uppercase";
+	}
+}
+function removeShift(e) {
+	let keyboard = document.querySelector('.keyboard');
+	if (e.key == "Shift") {
+		keyboard.style.textTransform = "lowercase";
+	}
+}
+document.addEventListener('keydown', addShift);
+document.addEventListener('keyup', removeShift);

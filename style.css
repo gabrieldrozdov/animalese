@@ -24,8 +24,8 @@
 }
 body {
 	font-family: "Limkin", sans-serif;
-	font-variation-settings: "wght" 900, "SRFF" 0;
-	font-weight: 900;
+	font-variation-settings: "wght" 700, "SRFF" 0;
+	font-weight: 700;
 	background-color: #eee;
 }
 button {
@@ -50,16 +50,16 @@ button {
 .title {
 	position: fixed;
 	top: 20px;
-	font-size: 24px;
+	font-size: clamp(10px, 3vw, 20px);
 	line-height: 1em;
+	letter-spacing: -0.01em;
 	white-space: nowrap;
 }
 .title a {
 	text-decoration: none;
-	background-color: black;
-	border-radius: 5px;
-	padding: calc(5px + .2em) 10px 5px 10px;
-	color: #eee;
+	color: black;
+	font-variation-settings: "wght" 900, "SRFF" 0;
+	font-weight: 900;
 }
 .title a:hover {
 	opacity: .5;
@@ -70,7 +70,7 @@ button {
 
 /* Screen */
 .screen {
-	border: 5px solid black;
+	border: 3px solid black;
 	border-radius: 10px;
 	background-color: white;
 	position: relative;
@@ -81,6 +81,8 @@ button {
 }
 .screen-content {
 	font-size: clamp(20px, 7vw, 48px);
+	font-variation-settings: "wght" 700, "SRFF" 0;
+	font-weight: 700;
 	text-align: center;
 	word-break: break-word;
 	letter-spacing: -0.02em;
@@ -90,36 +92,6 @@ button {
 	padding: calc(20px + .2em) 20px 20px 20px;
 	outline: unset;
 	width: 100%;
-}
-.screen-button {
-	background-color: unset;
-	font-size: 14px;
-	line-height: 1em;
-	font-variation-settings: "wght" 900, "SRFF" 0;
-	font-weight: 900;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	padding-top: 5px;
-	border: unset;
-	color: black;
-	position: absolute;
-	letter-spacing: .1em;
-}
-.screen-button:hover {
-	opacity: .5;
-}
-.screen-button:active {
-	opacity: .25;
-}
-.screen-button-clear {
-	bottom: 5px;
-	left: 8px;
-}
-.screen-button-play {
-	bottom: 5px;
-	right: 7px;	
 }
 
 /* Controls */
@@ -131,7 +103,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	padding: 4px 10px 0 10px;
-	border: 5px solid black;
+	border: 3px solid black;
 	border-radius: 10px;
 	box-shadow: 3px 3px black;
 	background-color: var(--primary);
@@ -139,11 +111,13 @@ button {
 }
 .controls-group label {
 	text-transform: uppercase;
-	font-size: 10px;
+	font-size: clamp(8px, 2.5vw, 10px);
 	letter-spacing: .2em;
 	line-height: 1em;
 	padding-left: .2em;
-	transform: translateY(-8px);
+	transform: translateY(-10px);
+	font-variation-settings: "wght" 750, "SRFF" 0;
+	font-weight: 750;
 }
 .controls-group input {
 	cursor: pointer;
@@ -151,7 +125,7 @@ button {
 	background: black;
 	border-radius: 20px;
 	outline: none;
-	height: 5px;
+	height: 3px;
 	width: 100%;
 }
 .controls-group input::-webkit-slider-thumb {
@@ -161,14 +135,14 @@ button {
 	height: 20px;
 	border-radius: 50%;
 	background: white;
-	border: 5px solid black;
+	border: 3px solid black;
 	cursor: pointer;
 }
 .controls-group input::-moz-range-thumb {
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	border: 5px solid black;
+	border: 3px solid black;
 	background: white;
 	cursor: pointer;
 }
@@ -180,22 +154,24 @@ button {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
+	text-transform: lowercase;
 }
 .keyboard-row {
 	flex-grow: 1;
 	flex-basis: 40px;
+	min-height: 40px;
 	display: flex;
 	gap: 6px;
 }
 .keyboard-row button {
 	flex-grow: 1;
 	flex-basis: 0;
-	font-variation-settings: "wght" 900, "SRFF" 0;
-	font-weight: 900;
-	font-size: clamp(10px, 3.5vw, 24px);
+	font-variation-settings: "wght" 700, "SRFF" 0;
+	font-weight: 700;
+	font-size: clamp(10px, 3vw, 20px);
 	border: unset;
 	background-color: var(--primary);
-	border: 5px solid black;
+	border: 3px solid black;
 	border-radius: 10px;
 	box-shadow: 3px 3px black;
 	color: black;
@@ -203,6 +179,7 @@ button {
 	line-height: 1em;
 	padding-top: .2em;
 	outline: unset;
+	text-transform: inherit;
 }
 .keyboard-row button[data-active="1"] {
 	background-color: white;
@@ -219,12 +196,22 @@ button {
 	flex-grow: 1;
 }
 #keyboard-clear {
-	font-size: 16px;
-	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-size: clamp(8px, 2.5vw, 16px);
+	letter-spacing: .2em;
+	line-height: 1em;
+	padding-left: .2em;
+	font-variation-settings: "wght" 750, "SRFF" 0;
+	font-weight: 750;
 }
 #keyboard-play {
-	font-size: 16px;
-	letter-spacing: .1em;
+	text-transform: uppercase;
+	font-size: clamp(8px, 2.5vw, 16px);
+	letter-spacing: .2em;
+	line-height: 1em;
+	padding-left: .2em;
+	font-variation-settings: "wght" 750, "SRFF" 0;
+	font-weight: 750;
 }
 
 /* Fullscreen player */
@@ -256,28 +243,32 @@ button {
 	flex-wrap: wrap;
 	align-items: safe center;
 	justify-content: safe center;
-	gap: .2em;
+	gap: .1em;
 }
 .player-content > span {
 	flex-wrap: nowrap;
+	gap: .1em 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 .player-content .letter {
-	margin: 3px;
+	/* margin: 3px; */
 	color: black;
 	background-color: var(--primary);
 	border-radius: 10px;
-	display: inline-block;
 	padding: max(.5vw, 5px);
 	line-height: 1em;
-	border: 5px solid black;
+	border: 3px solid black;
 	box-shadow: 3px 3px black;
+	overflow: hidden;
 }
 
 /* Mobile styles */
 @media (max-width: 650px) {
 	.title {
 		top: 15px;
-		font-size: 14px;
 	}
 }
 @media (max-width: 450px) {
