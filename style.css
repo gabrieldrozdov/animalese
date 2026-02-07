@@ -43,7 +43,6 @@ button {
 	display: grid;
 	grid-template-rows: minmax(0, 1fr) minmax(0, 1.25fr);
 	padding: 60px 10px;
-	gap: 6px;
 	max-width: 720px;
 	max-height: 800px;
 }
@@ -70,8 +69,7 @@ button {
 
 /* Screen */
 .screen {
-	border: 3px solid black;
-	border-radius: 10px;
+	border: 10px inset #fafafa;
 	background-color: white;
 	position: relative;
 	display: flex;
@@ -103,9 +101,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	padding: 4px 10px 0 10px;
-	border: 3px solid black;
-	border-radius: 10px;
-	box-shadow: 3px 3px black;
+	border: 10px outset color-mix(in hsl, white 10%, var(--primary) 100%);
 	background-color: var(--primary);
 	min-height: 50px;
 }
@@ -122,7 +118,7 @@ button {
 .controls-group input {
 	cursor: pointer;
 	-webkit-appearance: none;
-	background: black;
+	background: white;
 	border-radius: 20px;
 	outline: none;
 	height: 3px;
@@ -133,16 +129,14 @@ button {
 	appearance: none;
 	width: 20px;
 	height: 20px;
-	border-radius: 50%;
 	background: white;
-	border: 3px solid black;
+	border: 5px outset white;
 	cursor: pointer;
 }
 .controls-group input::-moz-range-thumb {
 	width: 20px;
 	height: 20px;
-	border-radius: 50%;
-	border: 3px solid black;
+	border: 5px outset white;
 	background: white;
 	cursor: pointer;
 }
@@ -153,7 +147,6 @@ button {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
 	text-transform: lowercase;
 }
 .keyboard-row {
@@ -161,7 +154,6 @@ button {
 	flex-basis: 40px;
 	min-height: 40px;
 	display: flex;
-	gap: 6px;
 }
 .keyboard-row button {
 	flex-grow: 1;
@@ -171,9 +163,7 @@ button {
 	font-size: clamp(10px, 3vw, 20px);
 	border: unset;
 	background-color: var(--primary);
-	border: 3px solid black;
-	border-radius: 10px;
-	box-shadow: 3px 3px black;
+	border: 10px outset color-mix(in hsl, white 10%, var(--primary) 100%);
 	color: black;
 	cursor: pointer;
 	line-height: 1em;
@@ -182,15 +172,15 @@ button {
 	text-transform: inherit;
 }
 .keyboard-row button[data-active="1"] {
-	background-color: white;
-	transform: scale(0.95);
+	filter: brightness(90%);
+	border: 10px inset color-mix(in hsl, white 10%, var(--primary) 100%);
 }
 .keyboard-row button:hover {
-	background-color: white;
-	transform: scale(1.02);
+	filter: brightness(110%);
 }
 .keyboard-row button:active {
-	transform: scale(0.95);
+	filter: brightness(90%);
+	border: 10px inset color-mix(in hsl, white 10%, var(--primary) 100%);
 }
 .keyboard-row-spacer {
 	flex-grow: 1;
@@ -254,14 +244,11 @@ button {
 	justify-content: center;
 }
 .player-content .letter {
-	/* margin: 3px; */
 	color: black;
 	background-color: var(--primary);
-	border-radius: 10px;
 	padding: max(.5vw, 5px);
 	line-height: 1em;
-	border: 3px solid black;
-	box-shadow: 3px 3px black;
+	border: 10px outset color-mix(in hsl, white 10%, var(--primary) 100%);
 	overflow: hidden;
 }
 
@@ -273,24 +260,17 @@ button {
 }
 @media (max-width: 450px) {
 	.container {
-		padding: 2px;
-		gap: 2px;
 		padding: unset;
 	}
 	.content {
-		padding: 40px 2px 2px 2px;
+		padding: 40px 0 0 0;
 		max-height: unset;
-		gap: 2px;
 	}
 	.screen {
-		box-shadow: unset;
-		border: 2px solid black;
-		border-radius: 4px;
+		border-width: 2px !important;
 	}
 	.controls-group {
-		border: 2px solid black;
-		box-shadow: unset;
-		border-radius: 4px;
+		border-width: 5px !important;
 	}
 	.controls-group label {
 		transform: translateY(-15px);
@@ -299,20 +279,15 @@ button {
 		height: 2px;
 	}
 	.controls-group input::-webkit-slider-thumb {
-		border: 2px solid black;
+		border-width: 2px !important;
 	}
 	.controls-group input::-moz-range-thumb {
-		border: 2px solid black;
-	}
-	.keyboard {
-		gap: 2px;
-	}
-	.keyboard-row {
-		gap: 2px;
+		border-width: 2px !important;
 	}
 	.keyboard-row button {
-		border: 2px solid black;
-		box-shadow: unset;
-		border-radius: 4px;
+		border-width: 5px !important;
+	}
+	.player-content .letter {
+		border-width: 5px !important;
 	}
 }
