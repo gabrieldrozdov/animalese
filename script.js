@@ -10,7 +10,7 @@ for (let letter of validLetters) {
 			C2: `voice-${letter}.mp3`
 		},
 		baseUrl: "assets/audio/",
-		volume: -10,
+		volume: -5,
 	}).toDestination();
 }
 function playVoice(letter) {
@@ -41,8 +41,7 @@ function playAll() {
 	for (let word of words) {
 		temp += `<span>`;
 		for (let letter of word) {
-			let randomColor = colors[Math.floor(Math.random()*colors.length)];
-			temp += `<span style="--primary: var(--${randomColor}); transform: translateY(100%) rotate(${Math.random()*720-360}deg); opacity: 0; transition: ${speed}ms;" class="letter">${letter}</span>`
+			temp += `<span style="transform: translateY(100%) rotate(${Math.random()*720-360}deg); opacity: 0; transition: ${speed}ms;" class="letter">${letter}</span>`
 		}
 		wordIndex++;
 		if (wordIndex >= words.length) {
@@ -79,20 +78,6 @@ function endPlayAll() {
 	player.dataset.active = 0;
 }
 
-// Change keyboard colors
-const colors = ['blue', 'red', 'yellow', 'green', 'purple', 'orange', 'pink', 'lime'];
-function changeColors() {
-	for (let button of document.querySelectorAll('.keyboard-row button')) {
-		let color = colors[Math.floor(Math.random()*colors.length)];
-		button.style.setProperty('--primary', `var(--${color})`);
-	}
-	for (let group of document.querySelectorAll('.controls-group')) {
-		let color = colors[Math.floor(Math.random()*colors.length)];
-		group.style.setProperty('--primary', `var(--${color})`);
-	}
-}
-// setInterval(changeColors, 1000);
-
 // Controls
 let pitch = 200;
 function setPitch(newPitch) {
@@ -117,23 +102,6 @@ function setSpeed(newSpeed) {
 	speed = speedToDelay(newSpeed);
 }
 
-// Convert a linear range (1–100) to a logarithmic dB scale (-60 to 0)
-let volume = 100;
-function linearToDb(value, min = 1, max = 100, minDb = -60, maxDb = 0) {
-	// Normalize to 0–1
-	const normalized = (value - min) / (max - min);
-  
-	// Apply logarithmic curve (more natural to human hearing)
-	const logScaled = Math.log10(1 + 9 * normalized); // log(1–10) mapping
-  
-	// Map to dB range
-	return minDb + (maxDb - minDb) * logScaled;
-}
-function setVolume(newVolume) {
-	volume = linearToDb(newVolume);
-	Tone.Destination.volume.value = volume;
-}
-
 // Add event listeners to virtual keyboard
 let delays = {};
 function initKeyboard() {
@@ -141,7 +109,6 @@ function initKeyboard() {
 		delays[letter] = "";
 	}
 
-	changeColors();
 	for (let button of document.querySelectorAll('.keyboard-row button')) {
 		let letter = button.dataset.letter;
 		button.addEventListener('click', () => {
@@ -209,7 +176,6 @@ function removeLetter() {
 function clearScreen() {
 	let screenContent = document.querySelector('.screen-content');
 	screenContent.textContent = "";
-	changeColors();
 }
 
 // Use real keyboard

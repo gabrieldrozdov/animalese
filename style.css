@@ -5,17 +5,6 @@
 		 url("https://toomuchtype.com/fonts/limkin/variable/TMT-LimkinVF.woff2") format(woff2);
 	font-weight: 100 900;
 }
-:root {
-	--blue: #57b6fe;
-	--red: #ff6b6b;
-	--yellow: #ffba0b;
-	--green: #55e477;
-	--purple: #ca8fec;
-	--orange: #fb8938;
-	--lime: #bfe111;
-	--pink: #fc7cb8;
-	--primary: #eee;
-}
 * {
 	margin: 0;
 	padding: 0;
@@ -26,7 +15,7 @@ body {
 	font-family: "Limkin", sans-serif;
 	font-variation-settings: "wght" 700, "SRFF" 0;
 	font-weight: 700;
-	background-color: #eee;
+	background-color: #bbb;
 }
 button {
 	font-family: inherit;
@@ -69,8 +58,8 @@ button {
 
 /* Screen */
 .screen {
-	border: 10px inset #fafafa;
-	background-color: white;
+	border: 10px inset #eee;
+	background-color: #eee;
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -101,8 +90,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	padding: 4px 10px 0 10px;
-	border: 10px outset color-mix(in hsl, white 10%, var(--primary) 100%);
-	background-color: var(--primary);
+	gap: 4px;
 	min-height: 50px;
 }
 .controls-group label {
@@ -110,6 +98,7 @@ button {
 	font-size: clamp(8px, 2.5vw, 10px);
 	letter-spacing: .2em;
 	line-height: 1em;
+	color: #555;
 	padding-left: .2em;
 	transform: translateY(-10px);
 	font-variation-settings: "wght" 750, "SRFF" 0;
@@ -118,8 +107,7 @@ button {
 .controls-group input {
 	cursor: pointer;
 	-webkit-appearance: none;
-	background: white;
-	border-radius: 20px;
+	background: #999;
 	outline: none;
 	height: 3px;
 	width: 100%;
@@ -129,16 +117,30 @@ button {
 	appearance: none;
 	width: 20px;
 	height: 20px;
-	background: white;
-	border: 5px outset white;
+	background: #aaa;
+	border: 5px outset #ccc;
 	cursor: pointer;
 }
 .controls-group input::-moz-range-thumb {
 	width: 20px;
 	height: 20px;
-	border: 5px outset white;
-	background: white;
+	border: 5px outset #ccc;
+	background: #aaa;
 	cursor: pointer;
+}
+.controls-group input::-webkit-slider-thumb:hover {
+	filter: brightness(110%);
+}
+.controls-group input::-webkit-slider-thumb:active {
+	filter: brightness(90%);
+	border: 5px inset #ccc;
+}
+.controls-group input::-moz-range-thumb:hover {
+	filter: brightness(110%);
+}
+.controls-group input::-moz-range-thumb:active {
+	filter: brightness(90%);
+	border: 5px inset #ccc;
 }
 
 /* Keyboard */
@@ -162,9 +164,10 @@ button {
 	font-weight: 700;
 	font-size: clamp(10px, 3vw, 20px);
 	border: unset;
-	background-color: var(--primary);
-	border: 10px outset color-mix(in hsl, white 10%, var(--primary) 100%);
-	color: black;
+	background-color: #ccc;
+	border: 10px outset color-mix(in hsl, white 10%, #ddd 100%);
+	color: #777;
+	text-shadow: -.5px -.5px rgba(0,0,0,.5), -1px -1px rgba(0,0,0,.5), .5px .5px rgba(255,255,255,.5), 1px 1px rgba(255,255,255,.5);
 	cursor: pointer;
 	line-height: 1em;
 	padding-top: .2em;
@@ -173,14 +176,14 @@ button {
 }
 .keyboard-row button[data-active="1"] {
 	filter: brightness(90%);
-	border: 10px inset color-mix(in hsl, white 10%, var(--primary) 100%);
+	border: 10px inset color-mix(in hsl, white 10%, #ddd 100%);
 }
 .keyboard-row button:hover {
 	filter: brightness(110%);
 }
 .keyboard-row button:active {
 	filter: brightness(90%);
-	border: 10px inset color-mix(in hsl, white 10%, var(--primary) 100%);
+	border: 10px inset color-mix(in hsl, white 10%, #ddd 100%);
 }
 .keyboard-row-spacer {
 	flex-grow: 1;
@@ -212,7 +215,7 @@ button {
 	right: 0;
 	bottom: 0;
 	z-index: 9;
-	background-color: #eee;
+	background-color: white;
 	font-size: max(5vw, 32px);
 	word-break: break-word;
 	overflow-wrap: break-word;
@@ -245,11 +248,7 @@ button {
 }
 .player-content .letter {
 	color: black;
-	background-color: var(--primary);
-	padding: max(.5vw, 5px);
 	line-height: 1em;
-	border: 10px outset color-mix(in hsl, white 10%, var(--primary) 100%);
-	overflow: hidden;
 }
 
 /* Mobile styles */
